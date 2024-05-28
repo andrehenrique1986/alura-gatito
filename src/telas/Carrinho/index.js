@@ -1,5 +1,4 @@
 import React from "react";
-import TelaPadrao from "../../componentes/TelaPadrao";
 import { FlatList } from "react-native";
 import Item from "../Carrinho/Item";
 import StatusCarrinho from "../../componentes/StatusCarrinho";
@@ -36,14 +35,14 @@ const Carrinho = () => {
     const total = servicos.reduce((soma, {preco, quantidade}) =>  soma + (preco * quantidade), 0);
 
     return (
-       <TelaPadrao>
+       <>
        <StatusCarrinho total={total}/>
             <FlatList
                 data={servicos}
                 renderItem={({item}) => <Item {...item}/>}
                 keyExtractor={({id}) => String(id)}
              />
-       </TelaPadrao>
+       </>
        
     )
 }

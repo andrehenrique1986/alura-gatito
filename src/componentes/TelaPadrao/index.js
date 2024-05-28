@@ -1,12 +1,14 @@
 import React from "react";
 
 import { SafeAreaView, StatusBar , KeyboardAvoidingView, Platform } from "react-native";
-import estilosGlobal from '../../../src/estilos';
+import estilosGlobal, { cores } from '../../../src/estilos';
+import estilos from "./estilos";
 
 const TelaPadrao = ({ children }) => {
     return (
-        <SafeAreaView style={estilosGlobal.preencher}>
-        <StatusBar/>
+        <>
+        <SafeAreaView style={estilos.ajusteTela}>
+        <StatusBar backgroundColor={cores.roxo}/>
         <KeyboardAvoidingView 
         behavior={Platform.OS == "ios" ? "padding" : "height"}
         style={estilosGlobal.preencher}
@@ -14,6 +16,9 @@ const TelaPadrao = ({ children }) => {
            {children}
              </KeyboardAvoidingView>
         </SafeAreaView>
+        <SafeAreaView style={estilos.ajusteTelaBaixo}/>
+        </>
+
     )
 }
 
